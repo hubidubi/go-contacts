@@ -1,6 +1,16 @@
 # GO Contacts
 
-## Fetching dependencies
+## Configuration
+Config file resides in ```config/config.yaml```
+
+Values:
+``` yaml
+Host: localhost
+Port: 8080
+Dsn: gocontacts:gocontacts@tcp(localhost:3306)/gocontacts?charset=utf8&parseTime=true
+```
+
+## Fetching project dependencies
 ``` shell
 go mod vendor
 ```
