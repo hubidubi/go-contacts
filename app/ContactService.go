@@ -19,7 +19,7 @@ func init() {
 		log.Fatalf("invalid application configuration: %s", err)
 	}
 	if DB, err = gorm.Open(mysql.Open(Config.Dsn), &gorm.Config{}); err != nil {
-		panic("failed to connect database")
+		log.Fatal("failed to connect database")
 	} else {
 		DB.AutoMigrate(&Contact{})
 	}
