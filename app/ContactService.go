@@ -7,7 +7,6 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
-	"main/app/config"
 	"net/http"
 	"strconv"
 )
@@ -16,10 +15,10 @@ var DB *gorm.DB
 var err error
 
 func init() {
-	if err := config.LoadConfig("./config"); err != nil {
+	if err := LoadConfig("./config"); err != nil {
 		log.Fatalf("invalid application configuration: %s", err)
 	}
-	if DB, err = gorm.Open(mysql.Open(config.Config.Dsn), &gorm.Config{}); err != nil {
+	if DB, err = gorm.Open(mysql.Open(Config.Dsn), &gorm.Config{}); err != nil {
 		panic("failed to connect database")
 	} else {
 		DB.AutoMigrate(&Contact{})
