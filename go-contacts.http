@@ -1,3 +1,8 @@
+GET http://localhost:8080/contacts
+Accept: application/json
+
+###
+
 GET http://localhost:8080/contacts/1
 Accept: application/json
 
@@ -25,18 +30,6 @@ Content-Type: application/json
   "phone": "1234",
   "email": "harry@gmail.com"
 }
-
-
-###
-
-GET http://localhost:8080/contacts
-Accept: application/json
-
-
-###
-
-GET http://localhost:8080/masik
-
 
 ###
 
