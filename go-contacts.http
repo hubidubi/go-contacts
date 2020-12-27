@@ -1,0 +1,56 @@
+GET http://localhost:8080/contacts/1
+Accept: application/json
+
+###
+
+POST http://localhost:8080/contacts
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Harry",
+  "phone": "1234",
+  "email": "harry@gmail.com"
+}
+
+
+###
+
+PUT http://localhost:8080/contacts/20
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Harry MOD",
+  "phone": "1234",
+  "email": "harry@gmail.com"
+}
+
+
+###
+
+GET http://localhost:8080/contacts
+Accept: application/json
+
+
+###
+
+GET http://localhost:8080/masik
+
+
+###
+
+DELETE http://localhost:8080/contacts/22
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/contacts/name/Harry
+Accept: application/json
+
+###
+
+GET http://localhost:8080/metrics
+
+
