@@ -1,4 +1,4 @@
-GET http://localhost:8080/contacts
+GET http://localhost:8080/contacts/
 Accept: application/json
 
 ###
@@ -53,3 +53,7 @@ GET http://localhost:8090/metrics
 
 GET http://localhost:8090/contacts
 
+
+###
+
+GET http://localhost:8080/logger
