@@ -1,21 +1,22 @@
 # GO Contacts
 
-## Configuration
-Config file resides in ```config/config.yaml```
-
-Values:
-``` yaml
-Host: localhost:8080
-Dsn: gocontacts:gocontacts@tcp(localhost:3306)/gocontacts?charset=utf8&parseTime=true
-```
-
 ## Fetching project dependencies
 ``` shell
 go mod vendor
 ```
 
+## Build project
+``` shell
+go build
+```
 
-### TODO
+## Build and start docker image
+``` shell
+docker build -t go-contacts .
+docker run -t go-contacts
+```
+
+## TODO
 - [x] endpoints
 - [x] flags: timeouts, ports
 - [x] error handling with messages

@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/gorilla/mux"
-	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
 	"net/http"
@@ -12,18 +11,6 @@ import (
 )
 
 var DB *gorm.DB
-var err error
-
-func init() {
-	if err := LoadConfig("./config"); err != nil {
-		log.Fatalf("invalid application configuration: %s", err)
-	}
-	if DB, err = gorm.Open(mysql.Open(Config.Dsn), &gorm.Config{}); err != nil {
-		log.Fatal("failed to connect database")
-	} else {
-		DB.AutoMigrate(&Contact{})
-	}
-}
 
 func ListContacts(w http.ResponseWriter, r *http.Request) {
 	log.Print("Listing contacts")

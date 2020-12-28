@@ -1,22 +1,17 @@
-############################
-# STEP 1 build executable binary
-############################
 FROM golang:alpine AS builder
-# Install git.
-# Git is required for fetching the dependencies.
-RUN apk update && apk add --no-cache git
-WORKDIR .
-COPY . .
-# Fetch dependencies.
-# Using go get.
+RUN apk add curl
+RUN mkdir /app
+ADD . /app
+WORKDIR /app
 RUN go get -d -v
-# Build the binary.
-RUN go build -o /go/bin/hello
-############################
-# STEP 2 build a small image
-############################
-FROM scratch
-# Copy our static executable.
-COPY --from=builder /go/bin/hello /go/bin/hello
-# Run the hello binary.
-ENTRYPOINT ["/go/bin/hello"]
+RUN go build
+
+#EXPOSE 8080
+#ENTRYPOINT ["/app/main","--dsn=gocontacts:gocontacts@tcp(host.docker.internal:3306)/gocontacts?charset=utf8&parseTime=true"]
+
+# step 2
+FROM alpine
+COPY --from=builder /app/main /
+EXPOSE 8080
+# Command to run
+ENTRYPOINT ["/main","--dsn=gocontacts:gocontacts@tcp(host.docker.internal:3306)/gocontacts?charset=utf8&parseTime=true"]
