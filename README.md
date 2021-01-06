@@ -23,7 +23,7 @@ docker run -t go-contacts
 - [x] Persistence  
 - [x] metrics -> prometheus
 - [x] logging fulfilling request time
+- [x] Dockerfile config
 - [ ] test coverage, 70%
 - [ ] e2e test
-- [x] Dockerfile config
 
