@@ -7,5 +7,5 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/prometheus/client_golang v1.12.1
 	gorm.io/driver/mysql v1.3.4
-	gorm.io/gorm v1.23.7
+	gorm.io/gorm v1.23.8
 )
